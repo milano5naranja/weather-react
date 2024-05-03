@@ -56,20 +56,16 @@ export default function Weather() {
             
               <img
                 src={weatherData.imgUrl}
-                alt="cloudy weather image"
+                alt="cloudy weather "
                 id="icon"
               />
               <div>
                 <strong id="temperature">{weatherData.temperature}</strong>
                 <span className="units">
               
-                  <a href="#" id="fahrenheit-link" class="active">
-                    °F
-                  </a>
+                 
               
-                  <a href="#" id="celsius-link">
-                    °C
-                  </a>
+                
                 </span>
               </div>
             </div>
