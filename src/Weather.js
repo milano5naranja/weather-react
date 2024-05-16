@@ -8,8 +8,8 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -28,19 +28,21 @@ export default function Weather(props) {
     search();
   }
 
+  function handleCityChange(event) {
+    setCity(event.target.value);
+
+  }
+
   function search() {
 
-    const apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    const apiKey = "ff8e6a9e3d6fde87cb38868da460b1371";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
 
   }
 
-  function handleCityChange(event) {
-    setCity(event.target.value);
-
-  }
+  
 
   if (weatherData.ready) {
     return (
@@ -57,16 +59,16 @@ export default function Weather(props) {
            />
           </div>
           <div className="col-3">
-          <input type="submit" value="Search" className="btn btn-primary"/>
+          <input type="submit" value="Search" className="btn btn-primary w-100"/>
           </div>
           </div>
         </form>
         <WeatherInfo data={weatherData} />
  
-  </div>
+    </div>
   );
 } else {
-
+  search();
   return "Loading...";
 }
 }

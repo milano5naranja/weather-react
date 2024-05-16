@@ -1,93 +1,54 @@
 .Weather {
-    max-width: 600px;
-    margin: 45px auto;
+  font-family: arial, sans-serif;
+  border: 1px solid #dadde1;
+  padding: 16px;
+  border-radius: 4px;
+  color: rgb(135, 135, 135);
     
   }
 
   .Weather h1 {
-    color:#4f2e7b
+    color:#4f2e7b;
+    font-size: 24px;
+    font-weight: 100;
+    margin: 20px 0 0 0;
+    line-height: 29px;
+
     
   }
   
-  .Weather .weather-app {
+  .Weather ul {
     padding: 30px;
-    border-radius: 16px;
-    background-color: white;
+    margin: 0;
    
   }
-  .Weather .current-conditions {
-    padding: 20px 15px;
-  }
   
-  .Weather .weather-description {
-    text-align: center;
-  }
-  
-  .Weather .searchBar {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-  
-  .Weather .overview {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .Weather .weather-temperature img {
-    margin-right: 5px;
-    float: left;
-    height: 64px;
-    width: 64px;
-  }
-  .Weather .weather-temperature .active {
-    color: rgb(135, 135, 135);
-    cursor: default;
-  }
-  
-  .Weather .weather-temperature strong {
-    color: rgb(33, 33, 33);
-    font-size: 64px;
-    line-height: 1;
-    font-weight: 400;
-  }
-  .Weather .weather-temperature .units {
-    position: relative;
-    font-size: 16px;
-    top: -34px;
-  }
-  
-  .Weather .weather-forecast {
-    text-align: center;
-    color: black;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-  }
-  
-  .Weather .weather-forecast-day {
-    display: block;
-  }
-  
-  .Weather .weather-forecast-date {
-    font-size: 16px;
-    opacity: 0.5;
-  }
-  
-  .Weather .weather-forecast-temperatures {
-    font-size: 13px;
-  }
-  
-  .Weather .weather-forecast-temperatures-min {
-    opacity: 0.5;
-  }
-  
-  .Weather .weather-forecast-icon img {
-    width: 50px;
-  }
-  
-  .Weather .project-author {
-    text-align: center;
-    display: block;
-    font-size: 12px;
-    margin-top: 15px;
-  }
-  
+.Weather li {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+  list-style: none;
+}
+
+.Weather .temperature {
+  font-weight: bold;
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  line-height: 64px;
+  margin-left: 5px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.Weather canvas {
+  margin: 10px auto;
+}
+
+.Weather .unit {
+  color: rgb(33, 33, 33);
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  top: -34px;
+}
