@@ -1,48 +1,71 @@
 
    
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  const apiKey = "a5acb752426cd8188485c35694980e3a";
-  let city = "New York";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query={city}&key={apiKey}`;
-  return (
-  <div className="Weather"> 
-  <form>
-    <div className="row">
-    <div className="col-9">
-    <input type="search" placeholder="Enter a city..." className="form-control"/>
-    </div>
-    <div className="col-3">
-    <input type="submit" value="Search" className="btn btn-primary"/>
-    </div>
-    </div>
-  </form>
-  <h1>Helsinki</h1>
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ready: false});
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      date: "Wednesday 07:00",
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+    });
+   
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather"> 
+        <form>
+          <div className="row">
+          <div className="col-9">
+          <input type="search" placeholder="Enter a city..." className="form-control"/>
+          </div>
+          <div className="col-3">
+          <input type="submit" value="Search" className="btn btn-primary"/>
+          </div>
+          </div>
+        </form>
+  <h1>{weatherData.city}</h1>
   <ul>
-    <li>Friday 18:30</li>
-    <li>Mostly cloudy</li>
+    <li>{weatherData.date}</li>
+    <li className="text-capitalize">{weatherData.description}</li>
   </ul>
   <div className="row">
     <div className="col-6">
       <img
-        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-        alt="Mostly cloudy"
+        src={weatherData.iconUrl}
+        alt={weatherData.description}
       />
-      6 degrees
+    
       </div>
       <div className="col-6">
+        <span className="temperature">{weatherData.temperature}</span>
+        <span className="unit">℃</span>
+
         <ul>
-          <li>
-            Precipitacion: 15%
-          </li>
-          <li>Humidity: 72%</li>
-          <li>Wind: 13 km/h</li>
+          <li>Humidity: {weatherData.humidity}%</li>
+          <li>Wind: {weatherData.wind}</li>
         </ul>
       </div>
     </div>
   </div>
   );
+} else {
+
+  const apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.default.city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(handleResponse);
+
+  return "Loading...";
 }
+}
+
