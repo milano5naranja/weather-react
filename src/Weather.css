@@ -1,6 +1,11 @@
 .Weather {
     max-width: 600px;
     margin: 45px auto;
+    
+  }
+
+  .Weather h1 {
+    color:#4f2e7b
   }
   
   .Weather .weather-app {
