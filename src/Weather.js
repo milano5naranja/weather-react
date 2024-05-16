@@ -18,7 +18,7 @@ export default function Weather(props) {
       date: "Wednesday 07:00",
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+      iconUrl: "https://openweathermap.org/img/wn/10d@2x.png"
     });
    
   }
