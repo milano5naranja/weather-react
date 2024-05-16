@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import Weather from "./Weather";
-import "./Weather.css";
 
-import "./App.css";
+import Weather from "./Weather";
+
+
+import "./index.css";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
