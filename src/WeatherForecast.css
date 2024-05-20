@@ -2,7 +2,8 @@
     text-align: center;
 }
 
-.WeatherForecast-temperature-min {
+.WeatherForecast-temperature-max {
     opacity: 0.6;
     margin-left: 5px;
+    font-size: 20px;
 }

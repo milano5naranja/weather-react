@@ -1,11 +1,23 @@
 
 
+
+
 .App {
   max-width: 600px;
   margin: 30px auto;
+  background-image: url(./image/pastel_image.jpeg);
+
+  background-size: 600px 600px;
+
+  
 }
 
 .App footer {
-  font-size: 12px;
+  font-size: 14px;
   margin: 10px 0;
+  color: #ab89d7;;
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+  
 }
